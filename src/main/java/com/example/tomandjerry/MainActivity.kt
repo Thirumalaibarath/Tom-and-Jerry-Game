@@ -1852,11 +1852,11 @@ fun SwipeableBox() {
 
     Box(
         modifier = Modifier
-            .fillMaxSize() // Limiting the swipe detection area to 200.dp x 200.dp
+            .fillMaxSize() 
             .pointerInput(jerryX,bulletX) {
                 detectHorizontalDragGestures { change, dragAmount ->
                     if (dragAmount.absoluteValue > sensitivityThreshold) {if (dragAmount > 0) {
-                        // Swiped right
+                
                         when (jerryX) {
                             71 -> jerryX = 196
                             196 -> jerryX = 321
@@ -1869,7 +1869,6 @@ fun SwipeableBox() {
 
 
                     } else {
-                        // Swiped left
                         when (jerryX) {
                             321 -> jerryX = 196
                             196 -> jerryX = 71
@@ -2170,8 +2169,8 @@ fun circle(X:Int,Y:Int,R:Int,color:Color)
     Canvas(modifier = Modifier.fillMaxSize()) {
         drawCircle(
             color = color,
-            radius = R.dp.toPx(), // Radius of the circle
-            center = Offset(X.dp.toPx(), Y.dp.toPx()) // Custom position
+            radius = R.dp.toPx(), 
+            center = Offset(X.dp.toPx(), Y.dp.toPx()) 
         )
 
         drawCircle(
@@ -2201,7 +2200,7 @@ fun Square( offsetX:Int,offsetY:Int,color:Color) {
         drawRect(
             color = if(color != Color.Transparent) Color.Black else  Color.Transparent,
             size = Size(squareSize, squareSize),
-            style = Stroke(width = 3.dp.toPx()) // Border width
+            style = Stroke(width = 3.dp.toPx()) 
         )
     }
 }
@@ -2264,7 +2263,7 @@ fun Square( offsetX:Int,offsetY:Int,color:Color) {
 //        drawRect(
 //            color = Color.Black,
 //            size = Size(squareSize, squareSize),
-//            style = Stroke(width = 3.dp.toPx()) // Border width
+//            style = Stroke(width = 3.dp.toPx()) 
 //        )
 //    }}
 //}
@@ -2295,7 +2294,7 @@ fun SquareTrap(offsetX: Int, offsetY: Int, color: Color, caught: Boolean,high :B
             drawRect(
                 color = Color.Black,
                 size = Size(squareSize, squareSize),
-                style = Stroke(width = 3.dp.toPx()) // Border width
+                style = Stroke(width = 3.dp.toPx()) 
             )
         }
     }
@@ -2303,8 +2302,8 @@ fun SquareTrap(offsetX: Int, offsetY: Int, color: Color, caught: Boolean,high :B
 
 @Composable
 fun Bullet(offsetX: Int, offsetY: Int, bulletHit: Boolean) {
-    val bulletWidth = if (!bulletHit) 15f else 0f // Width of the bullet in pixels
-    val bulletHeight = if (!bulletHit) 30f else 0f // Height of the bullet in pixels
+    val bulletWidth = if (!bulletHit) 15f else 0f 
+    val bulletHeight = if (!bulletHit) 30f else 0f 
     val borderWidth = if (!bulletHit) 10f else 0f
 
     Canvas(modifier = Modifier
@@ -2319,7 +2318,7 @@ fun Bullet(offsetX: Int, offsetY: Int, bulletHit: Boolean) {
             drawRect(
                 color = Color.Black,
                 size = Size(bulletWidth, bulletHeight),
-                style = Stroke(width = 3.dp.toPx()) // Border width
+                style = Stroke(width = 3.dp.toPx()) 
             )
 
     }
